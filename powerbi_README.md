@@ -64,23 +64,20 @@ Drill into any single company — select from dropdown and all 7 visuals update 
 - Company slicer (dropdown — filters entire page)
 - 5 KPI cards — Revenue, EBITDA Margin, Net Income, ROE, D/E Ratio
 - Combo chart — Revenue (bars) vs Net Income (line) FY2020–FY2024
-- Column chart — YoY Revenue Growth % with conditional colour (green = growth, red = decline)
-- Line chart — Net Income Margin % trend
-- Line chart — Company ROE vs Sector Average ROE (benchmarking)
-- Area chart — Debt/Equity trend with risk threshold line at 1.0
+- Column chart — YoY Sectorwise Revenue Growth % with conditional colour (green = growth, red = decline)
 - Data table — all metrics by year for exact figures
 
 **Purpose:** Answers "how is this specific company performing and is it beating its sector peers?"
 
 ---
 
-### Page 3 — Sector Comparison
+### Page 3 — Sectoral Deep Dive
 Side-by-side benchmarking across all 5 sectors.
 
 **Visuals:**
 - Clustered bar chart — EBITDA Margin by sector with data labels
 - Scatter plot — ROE vs Debt/Equity (risk vs return) — each bubble = one company, colour = sector
-- Matrix heat map — ROE for all 15 companies across 5 years, conditional formatted green to red
+- Line Chart - Revenue Vs Net Income trend over the years FY 202 to FY2024
 
 **Purpose:** Answers "which sectors offer the best risk-adjusted returns?"
 
