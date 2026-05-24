@@ -108,41 +108,36 @@ All three pharma companies show declining D/E ratios — Sun Pharma from 0.07 to
 ## DAX Measures Created
 
 ```dax
-Total Revenue = SUM(Data[Revenue (₹ Cr)])
+Total Revenue = SUM(Master Table[Revenue (₹ Cr)])
 
 Previous Year Revenue =
 CALCULATE(
     [Total Revenue],
-    Data[Year] = MAX(Data[Year]) - 1
+    Master Table[Year] = MAX(Data[Year]) - 1
 )
 
 YoY Revenue Growth % =
 DIVIDE(
     [Total Revenue] - [Previous Year Revenue],
     [Previous Year Revenue]
-) * 100
-
-Net Income Margin % =
-DIVIDE(SUM(Data[Net_Income (₹ Cr)]), SUM(Data[Revenue (₹ Cr)])) * 100
-
-Average ROE = AVERAGE(Data[ROE (%)])
-
-Sector Average ROE =
-VAR SelectedSector = SELECTEDVALUE(Data[Sector])
-VAR SelectedYear = MAX(Data[Year])
-RETURN
-CALCULATE(
-    AVERAGE(Data[ROE (%)]),
-    FILTER(
-        ALL(Data),
-        Data[Sector] = SelectedSector &&
-        Data[Year] = SelectedYear
-    )
 )
 
-Avg EBITDA Margin = AVERAGE(Data[EBITDA_Margin (%)])
+Net Income Margin % =
+DIVIDE(SUM(Data[Net_Income (₹ Cr)]), SUM(Master Table[Revenue (₹ Cr)]))
 
-Avg DE Ratio = AVERAGE(Data[Debt_to_Equity])
+Average ROE = AVERAGE(Master Table[ROE (%)], 100)
+
+Sector Average ROE =
+CALCULATE(
+    'Key Measures'[Average ROE],
+    ALLEXCEPT('Master Table','Master Table'[Sector],
+    'Master Table'[Year]
+             )
+         )
+
+Avg EBITDA Margin = DIVIDE(AVERAGE('Master Table'[EBITDA_Margin (%)]), 100)
+
+Avg DE Ratio = AVERAGE(Master Tabe[Debt_to_Equity])
 ```
 
 ---
